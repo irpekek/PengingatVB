@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "FreeIdea", "FreeIdea.vbproj", "{E9900774-5C4D-4CEE-81BF-024C37C6753D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9900774-5C4D-4CEE-81BF-024C37C6753D}.Debug|x86.ActiveCfg = Debug|x86
+		{E9900774-5C4D-4CEE-81BF-024C37C6753D}.Debug|x86.Build.0 = Debug|x86
+		{E9900774-5C4D-4CEE-81BF-024C37C6753D}.Release|x86.ActiveCfg = Release|x86
+		{E9900774-5C4D-4CEE-81BF-024C37C6753D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AA3FB09-C89E-4606-8A02-892F248A321E}
+	EndGlobalSection
+EndGlobal
