@@ -31,6 +31,7 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
@@ -67,7 +68,7 @@ Partial Class Form1
         '
         Me.Button1.Location = New System.Drawing.Point(292, 35)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(57, 23)
+        Me.Button1.Size = New System.Drawing.Size(57, 20)
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "Add"
         Me.Button1.UseVisualStyleBackColor = True
@@ -76,14 +77,14 @@ Partial Class Form1
         '
         Me.Button2.Location = New System.Drawing.Point(292, 61)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(57, 23)
+        Me.Button2.Size = New System.Drawing.Size(57, 20)
         Me.Button2.TabIndex = 5
         Me.Button2.Text = "Remove"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(75, 61)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(11, 61)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(130, 20)
         Me.DateTimePicker1.TabIndex = 18
@@ -91,18 +92,27 @@ Partial Class Form1
         'DateTimePicker2
         '
         Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.DateTimePicker2.Location = New System.Drawing.Point(211, 61)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(148, 61)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.ShowUpDown = True
         Me.DateTimePicker2.Size = New System.Drawing.Size(72, 20)
         Me.DateTimePicker2.TabIndex = 19
         '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(226, 61)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(56, 20)
+        Me.TextBox2.TabIndex = 25
+        '
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.HorizontalScrollbar = True
         Me.ListBox1.Location = New System.Drawing.Point(12, 107)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(270, 108)
+        Me.ListBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ListBox1.Size = New System.Drawing.Size(337, 108)
         Me.ListBox1.TabIndex = 24
         '
         'Form1
@@ -110,6 +120,7 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(361, 240)
+        Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.DateTimePicker2)
         Me.Controls.Add(Me.DateTimePicker1)
@@ -133,5 +144,6 @@ Partial Class Form1
     Friend WithEvents Button2 As Button
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents ListBox1 As ListBox
 End Class
