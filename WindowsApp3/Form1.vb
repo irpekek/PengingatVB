@@ -59,9 +59,7 @@ Public Class Form1
     Sub AturDGV()
         Try
             DataGridView1.Columns(0).Width = 30
-            DataGridView1.Columns(1).Width = 240
-            DataGridView1.Columns(2).Width = 70
-            DataGridView1.Columns(3).Width = 60
+            DataGridView1.Columns(1).Width = 150
             DataGridView1.Columns(0).HeaderText = "No"
             DataGridView1.Columns(1).HeaderText = "Remind ME"
             DataGridView1.Columns(2).HeaderText = "Date"

@@ -9,7 +9,7 @@ Module ModulKoneksi
 
     Public Sub KoneksiDB()
         Dim mysqlConn As String
-        mysqlConn = "Server = localhost; Port=3306; Database=percobaan; Uid=root; Pwd="
+        mysqlConn = "Server = localhost; Port=3306; Database=percobaan; Uid=root"
         conn = New MySqlConnection(mysqlConn)
         If conn.State = ConnectionState.Closed Then
             conn.Open()
