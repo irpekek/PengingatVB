@@ -86,6 +86,9 @@
     <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.13\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -109,6 +112,7 @@
     <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -142,7 +146,6 @@
     <Compile Include="Form2.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModulKoneksi.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -188,6 +191,24 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Resources\BOMB_SIREN-BOMB_SIREN-247265934.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BT_arrow_top-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Argon.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CyanAlarm.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Platinum.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_keyboard_arrow_up_black_48dp %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

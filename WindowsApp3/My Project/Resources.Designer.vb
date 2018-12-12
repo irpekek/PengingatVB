@@ -63,6 +63,53 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         '''</summary>
+        Friend ReadOnly Property Argon() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Argon", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property CyanAlarm() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("CyanAlarm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property ic_keyboard_arrow_up_black_48dp__1_() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("ic_keyboard_arrow_up_black_48dp__1_", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property Icon1() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Icon1", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
+        Friend ReadOnly Property Platinum() As System.IO.UnmanagedMemoryStream
+            Get
+                Return ResourceManager.GetStream("Platinum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        '''</summary>
         Friend ReadOnly Property Siren() As System.IO.UnmanagedMemoryStream
             Get
                 Return ResourceManager.GetStream("Siren", resourceCulture)
