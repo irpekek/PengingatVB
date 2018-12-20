@@ -1,9 +1,7 @@
 ﻿Imports System.IO
 Imports System.Net
 Imports System.Text
-Imports System.Web.Script.Serialization
 Imports Newtonsoft.Json
-Imports Newtonsoft.Json.Linq
 
 Public Class Form1
     Public thisTime, thisDate, thisDates As String
@@ -12,6 +10,7 @@ Public Class Form1
     Public reminderTime, reminderText, suara As String
     Public remind_user As String
     Public warnaSM As String
+    Public webClient As New WebClient
 
 
     Public Function PostData(ByRef URL As String, ByRef POST As String, ByRef Cookies As CookieContainer) As String
@@ -58,8 +57,8 @@ Public Class Form1
                     reminderText = remind_user
                     Form2.Show()
                     DataGridView1.Rows.Clear()
-                    Dim webClient As New WebClient
-                    Dim results As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php?token=9807&hapus&id=" & id_data)
+                    Dim result As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php?token=9807&hapus&id=" & id_data)
+                    DataGridView1.Rows.Clear()
                     Call minta()
                     Exit For
                 End If
@@ -74,8 +73,8 @@ Public Class Form1
         Try
             DataGridView1.Columns(0).Width = 30
             DataGridView1.Columns(1).Width = 220
-            DataGridView1.Columns(2).Width = 80
-            DataGridView1.Columns(3).Width = 50
+            DataGridView1.Columns(2).Width = 85
+            'DataGridView1.Columns(3).Width = 50
         Catch ex As Exception
         End Try
     End Sub
@@ -85,8 +84,7 @@ Public Class Form1
             If TextBox1.Text = "" Then
                 MsgBox("Masukan Teks Reminder")
             Else
-                Dim webClient As New WebClient
-                Dim result As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php?token=9807&masuk&remind=" & TextBox1.Text & "&tanggal=" & DateTimePicker1.Value.ToString("yyyy-MM-dd") & "&waktu=" & DateTimePicker2.Value.ToString("HH:mm:ss"))
+                Dim result As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php?token=9807&masuk&username=" & Form3.user_name & "&remind=" & TextBox1.Text & "&tanggal=" & DateTimePicker1.Value.ToString("yyyy-MM-dd") & "&waktu=" & DateTimePicker2.Value.ToString("HH:mm:ss"))
                 MsgBox("Insert Data Success")
                 DataGridView1.Rows.Clear()
                 TextBox1.Clear()
@@ -103,7 +101,6 @@ Public Class Form1
             If TextBox1.Text = "" And TextBox2.Text = "" Then
                 MsgBox("Masukan Teks Reminder Dan Nomor")
             Else
-                Dim webClient As New WebClient
                 Dim result As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php?token=9807&update&remind=" & TextBox1.Text & "&tanggal=" & DateTimePicker1.Value.ToString("yyyy-MM-dd") & "&waktu=" & DateTimePicker2.Value.ToString("HH:mm:ss") & "&id=" & TextBox2.Text)
                 MsgBox("Update Data Success")
                 DataGridView1.Rows.Clear()
@@ -119,16 +116,12 @@ Public Class Form1
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         'MsgBox(PostData("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php", "?token=9807&masuk&remind=" & TextBox1.Text & "&tanggal=" & DateTimePicker1.Value.ToString("yyyy-MM-dd") & "&waktu=" & DateTimePicker2.Value.ToString("HH:mm:ss"), New CookieContainer))
         'MsgBox(PostData("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php", "token=9807&minta&id=1", New CookieContainer))
-        'GetData("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php??token=9807&masuk&remind=" & TextBox1.Text & "&tanggal=" & DateTimePicker1.Value.ToString("yyyy-MM-dd") & "&waktu=" & DateTimePicker2.Value.ToString("HH:mm:ss"))
-        'Dim result As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php??token=9807&masuk&remind=" & TextBox1.Text & "&tanggal=" & DateTimePicker1.Value.ToString("yyyy-MM-dd") & "&waktu=" & DateTimePicker2.Value.ToString("HH:mm:ss"))
-        Dim webClient As New System.Net.WebClient
         Dim result As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php?token=9807&masuk&remind=" & TextBox1.Text & "&tanggal=" & DateTimePicker1.Value.ToString("yyyy-MM-dd") & "&waktu=" & DateTimePicker2.Value.ToString("HH:mm:ss"))
-        MsgBox("SEND SUKSES CUK")
     End Sub
 
     Public Sub minta()
         Call AturDGV()
-        Dim uriString As String = "http://unnamed48.ccug.gunadarma.ac.id/softskill/data2.php?minta&token=9807"
+        Dim uriString As String = "http://unnamed48.ccug.gunadarma.ac.id/softskill/data2.php?minta&token=9807&username=" & Form3.user_name
         Dim uri As New Uri(uriString)
 
         'buat http request
@@ -148,24 +141,22 @@ Public Class Form1
         Dim jResults = Newtonsoft.Json.Linq.JToken.Parse(raw)
         Dim query = jResults.SelectTokens(path)
         Dim count = query.Count() - 1
-        Dim idnya(count), remindnya(count), tanggalnya(count), waktunya(count) As String
         For counter As Integer = 0 To count
-            idnya(counter) = result("data")(counter)("id")
-            TextBox3.Text = idnya(counter)
-            remindnya(counter) = result("data")(counter)("remind_me")
-            tanggalnya(counter) = result("data")(counter)("tanggal")
-            waktunya(counter) = result("data")(counter)("waktu")
+            Dim idnya = result("data")(counter)("id")
+            Dim remindnya = result("data")(counter)("remind_me")
+            Dim tanggalnya = result("data")(counter)("tanggal")
+            Dim waktunya = result("data")(counter)("waktu")
             Dim rnum As Integer = DataGridView1.Rows.Add()
-            DataGridView1.Rows.Item(rnum).Cells("Column5").Value = idnya(counter)
-            DataGridView1.Rows.Item(rnum).Cells("Column6").Value = remindnya(counter)
-            DataGridView1.Rows.Item(rnum).Cells("Column7").Value = tanggalnya(counter)
-            DataGridView1.Rows.Item(rnum).Cells("Column8").Value = waktunya(counter)
+            DataGridView1.Rows.Item(rnum).Cells("Column5").Value = idnya
+            DataGridView1.Rows.Item(rnum).Cells("Column6").Value = remindnya
+            DataGridView1.Rows.Item(rnum).Cells("Column7").Value = tanggalnya
+            DataGridView1.Rows.Item(rnum).Cells("Column8").Value = waktunya
             DataGridView1.Update()
-            TextBox3.Text += idnya(counter) & "|" & remindnya(counter) & "|" & tanggalnya(counter) & "|" & waktunya(counter) & vbNewLine
         Next
     End Sub
 
     Private Sub Close_btn_Click(sender As Object, e As EventArgs) Handles Close_btn.Click
+        Form3.Show()
         Close()
     End Sub
 
@@ -174,7 +165,6 @@ Public Class Form1
             If TextBox2.Text = "" Then
                 MsgBox("Masukan nomor yang akan di hapus")
             Else
-                Dim webClient As New WebClient
                 Dim result As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php?token=9807&hapus&id=" & TextBox2.Text)
                 MsgBox("Delete Data Success")
                 DataGridView1.Rows.Clear()
@@ -191,7 +181,6 @@ Public Class Form1
             If SlideMenu.Height = 29 Then
                 SlideMenu.Height = 99
                 SlideMenu.BackColor = Color.FromArgb(22, 102, 177)
-                'SlideMenu.BackColor = Color.FromArgb(31, 31, 31)
                 UP.ForeColor = Color.White
                 timeGlobal.Visible = False
                 dateGlobal.Visible = False
@@ -229,16 +218,6 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub RectangleShape3_MouseUp(sender As Object, e As MouseEventArgs) Handles RectangleShape3.MouseUp
-        drag = False 'Sets drag to false, so the form does not move according to the code in MouseMove
-    End Sub
-
-    Private Sub RectangleShape3_MouseDown(sender As Object, e As MouseEventArgs) Handles RectangleShape3.MouseDown
-        drag = True 'Sets the variable drag to true.
-        mousex = Cursor.Position.X - Left 'Sets variable mousex
-        mousey = Cursor.Position.Y - Top 'Sets variable mousey
-    End Sub
-
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         suara = "audio1"
     End Sub
@@ -253,6 +232,38 @@ Public Class Form1
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         suara = "audio4"
+    End Sub
+
+    Private Sub Button5_MouseHover(sender As Object, e As EventArgs) Handles Button5.MouseHover
+        My.Computer.Audio.Play(My.Resources.Argon, AudioPlayMode.BackgroundLoop)
+    End Sub
+
+    Private Sub Button5_MouseLeave(sender As Object, e As EventArgs) Handles Button5.MouseLeave
+        My.Computer.Audio.Stop()
+    End Sub
+
+    Private Sub Button6_MouseHover(sender As Object, e As EventArgs) Handles Button6.MouseHover
+        My.Computer.Audio.Play(My.Resources.CyanAlarm, AudioPlayMode.BackgroundLoop)
+    End Sub
+
+    Private Sub Button6_MouseLeave(sender As Object, e As EventArgs) Handles Button6.MouseLeave
+        My.Computer.Audio.Stop()
+    End Sub
+
+    Private Sub Button7_MouseHover(sender As Object, e As EventArgs) Handles Button7.MouseHover
+        My.Computer.Audio.Play(My.Resources.Siren, AudioPlayMode.BackgroundLoop)
+    End Sub
+
+    Private Sub Button7_MouseLeave(sender As Object, e As EventArgs) Handles Button7.MouseLeave
+        My.Computer.Audio.Stop()
+    End Sub
+
+    Private Sub Button8_MouseHover(sender As Object, e As EventArgs) Handles Button8.MouseHover
+        My.Computer.Audio.Play(My.Resources.Platinum, AudioPlayMode.BackgroundLoop)
+    End Sub
+
+    Private Sub Button8_MouseLeave(sender As Object, e As EventArgs) Handles Button8.MouseLeave
+        My.Computer.Audio.Stop()
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
@@ -319,6 +330,7 @@ Public Class Form1
         RectangleShape11.BorderColor = Color.FromArgb(78, 184, 206)
         RectangleShape12.BorderColor = Color.FromArgb(78, 184, 206)
         SlideMenu.BackColor = Color.FromArgb(22, 102, 177)
+        DataGridView1.BackgroundColor = Color.White
         warnaSM = "light"
     End Sub
 
@@ -387,18 +399,25 @@ Public Class Form1
         RectangleShape12.BorderColor = Color.FromArgb(255, 65, 129)
         SlideMenu.BackColor = Color.FromArgb(31, 31, 31)
         warnaSM = "dark"
-    End Sub
-
-    Private Sub RectangleShape3_MouseMove(sender As Object, e As MouseEventArgs) Handles RectangleShape3.MouseMove
-        'If drag is set to true then move the form accordingly.
-        If drag Then
-            Top = Cursor.Position.Y - mousey
-            Left = Cursor.Position.X - mousex
-        End If
+        DataGridView1.BackgroundColor = Color.Black
     End Sub
 
     Private Sub Minimize_btn_Click(sender As Object, e As EventArgs) Handles Minimize_btn.Click
-        Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
+        WindowState = FormWindowState.Minimized
+        If WindowState = FormWindowState.Minimized Then
+            NotifyIcon1.Visible = True
+            NotifyIcon1.Icon = SystemIcons.Application
+            NotifyIcon1.BalloonTipIcon = ToolTipIcon.Info
+            NotifyIcon1.BalloonTipText = "Your Reminder"
+            NotifyIcon1.ShowBalloonTip(500)
+            ShowInTaskbar = False
+        End If
+    End Sub
+
+    Private Sub NotifyIcon1_DoubleClick(sender As Object, e As EventArgs) Handles NotifyIcon1.DoubleClick
+        ShowInTaskbar = True
+        Me.WindowState = FormWindowState.Normal
+        NotifyIcon1.Visible = False
     End Sub
 
     Private Sub Form1_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown

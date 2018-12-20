@@ -22,22 +22,23 @@ Partial Class Form2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.White
-        Me.Label1.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Open Sans Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(12, 33)
+        Me.Label1.Location = New System.Drawing.Point(11, 25)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(49, 15)
+        Me.Label1.Size = New System.Drawing.Size(275, 115)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "MY MAN"
         '
@@ -67,7 +68,7 @@ Partial Class Form2
         Me.Label2.BackColor = System.Drawing.Color.White
         Me.Label2.Font = New System.Drawing.Font("Open Sans", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(121, 129)
+        Me.Label2.Location = New System.Drawing.Point(121, 140)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(47, 18)
         Me.Label2.TabIndex = 2
@@ -84,6 +85,9 @@ Partial Class Form2
         Me.Label4.Size = New System.Drawing.Size(14, 15)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "X"
+        '
+        'Timer1
+        '
         '
         'Form2
         '
@@ -108,4 +112,5 @@ Partial Class Form2
     Friend WithEvents RectangleShape1 As PowerPacks.RectangleShape
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents Timer1 As Timer
 End Class

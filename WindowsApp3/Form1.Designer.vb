@@ -78,6 +78,7 @@ Partial Class Form1
         Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.SlideMenu.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -205,7 +206,7 @@ Partial Class Form1
         Me.Minimize_btn.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(177, Byte), Integer))
         Me.Minimize_btn.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Minimize_btn.ForeColor = System.Drawing.Color.White
-        Me.Minimize_btn.Location = New System.Drawing.Point(379, 4)
+        Me.Minimize_btn.Location = New System.Drawing.Point(380, 4)
         Me.Minimize_btn.Name = "Minimize_btn"
         Me.Minimize_btn.Size = New System.Drawing.Size(18, 19)
         Me.Minimize_btn.TabIndex = 27
@@ -498,6 +499,7 @@ Partial Class Form1
         Me.RectangleShape12.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
         Me.RectangleShape12.BorderColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.RectangleShape12.CornerRadius = 3
+        Me.RectangleShape12.Enabled = False
         Me.RectangleShape12.Location = New System.Drawing.Point(118, 54)
         Me.RectangleShape12.Name = "RectangleShape12"
         Me.RectangleShape12.Size = New System.Drawing.Size(81, 23)
@@ -508,6 +510,7 @@ Partial Class Form1
         Me.RectangleShape8.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
         Me.RectangleShape8.BorderColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.RectangleShape8.CornerRadius = 3
+        Me.RectangleShape8.Enabled = False
         Me.RectangleShape8.Location = New System.Drawing.Point(23, 54)
         Me.RectangleShape8.Name = "RectangleShape8"
         Me.RectangleShape8.Size = New System.Drawing.Size(81, 23)
@@ -518,6 +521,7 @@ Partial Class Form1
         Me.RectangleShape11.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
         Me.RectangleShape11.BorderColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.RectangleShape11.CornerRadius = 3
+        Me.RectangleShape11.Enabled = False
         Me.RectangleShape11.Location = New System.Drawing.Point(357, 54)
         Me.RectangleShape11.Name = "RectangleShape11"
         Me.RectangleShape11.Size = New System.Drawing.Size(32, 23)
@@ -528,6 +532,7 @@ Partial Class Form1
         Me.RectangleShape10.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
         Me.RectangleShape10.BorderColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.RectangleShape10.CornerRadius = 3
+        Me.RectangleShape10.Enabled = False
         Me.RectangleShape10.Location = New System.Drawing.Point(312, 54)
         Me.RectangleShape10.Name = "RectangleShape10"
         Me.RectangleShape10.Size = New System.Drawing.Size(32, 23)
@@ -538,6 +543,7 @@ Partial Class Form1
         Me.RectangleShape9.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
         Me.RectangleShape9.BorderColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.RectangleShape9.CornerRadius = 3
+        Me.RectangleShape9.Enabled = False
         Me.RectangleShape9.Location = New System.Drawing.Point(267, 54)
         Me.RectangleShape9.Name = "RectangleShape9"
         Me.RectangleShape9.Size = New System.Drawing.Size(32, 23)
@@ -548,6 +554,7 @@ Partial Class Form1
         Me.RectangleShape7.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
         Me.RectangleShape7.BorderColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
         Me.RectangleShape7.CornerRadius = 3
+        Me.RectangleShape7.Enabled = False
         Me.RectangleShape7.Location = New System.Drawing.Point(220, 54)
         Me.RectangleShape7.Name = "RectangleShape7"
         Me.RectangleShape7.Size = New System.Drawing.Size(32, 23)
@@ -657,6 +664,11 @@ Partial Class Form1
         Me.Label4.TabIndex = 38
         Me.Label4.Text = "No"
         '
+        'NotifyIcon1
+        '
+        Me.NotifyIcon1.Text = "Reminder"
+        Me.NotifyIcon1.Visible = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -742,4 +754,5 @@ Partial Class Form1
     Friend WithEvents Button9 As Button
     Friend WithEvents RectangleShape12 As PowerPacks.RectangleShape
     Friend WithEvents RectangleShape8 As PowerPacks.RectangleShape
+    Friend WithEvents NotifyIcon1 As NotifyIcon
 End Class
