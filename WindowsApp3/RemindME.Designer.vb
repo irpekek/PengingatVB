@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class RemindME
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,13 +27,13 @@ Partial Class Form1
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RemindME))
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.timeGlobal = New System.Windows.Forms.Label()
         Me.dateGlobal = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.add_btn = New System.Windows.Forms.Button()
+        Me.delete_btn = New System.Windows.Forms.Button()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
@@ -50,7 +50,7 @@ Partial Class Form1
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.update_btn = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.SlideMenu = New System.Windows.Forms.Panel()
@@ -122,35 +122,35 @@ Partial Class Form1
         Me.TextBox1.Size = New System.Drawing.Size(340, 15)
         Me.TextBox1.TabIndex = 1
         '
-        'Button1
+        'add_btn
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(356, 76)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(55, 22)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Add"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.add_btn.BackColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.add_btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.add_btn.FlatAppearance.BorderSize = 0
+        Me.add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.add_btn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.add_btn.ForeColor = System.Drawing.Color.White
+        Me.add_btn.Location = New System.Drawing.Point(356, 76)
+        Me.add_btn.Name = "add_btn"
+        Me.add_btn.Size = New System.Drawing.Size(55, 22)
+        Me.add_btn.TabIndex = 2
+        Me.add_btn.Text = "Add"
+        Me.add_btn.UseVisualStyleBackColor = False
         '
-        'Button2
+        'delete_btn
         '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(290, 76)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(55, 22)
-        Me.Button2.TabIndex = 5
-        Me.Button2.Text = "Delete"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.delete_btn.BackColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.delete_btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.delete_btn.FlatAppearance.BorderSize = 0
+        Me.delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.delete_btn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.delete_btn.ForeColor = System.Drawing.Color.White
+        Me.delete_btn.Location = New System.Drawing.Point(290, 76)
+        Me.delete_btn.Name = "delete_btn"
+        Me.delete_btn.Size = New System.Drawing.Size(55, 22)
+        Me.delete_btn.TabIndex = 5
+        Me.delete_btn.Text = "Delete"
+        Me.delete_btn.UseVisualStyleBackColor = False
         '
         'DateTimePicker1
         '
@@ -304,20 +304,20 @@ Partial Class Form1
         Me.Column4.HeaderText = "Time"
         Me.Column4.Name = "Column4"
         '
-        'Button3
+        'update_btn
         '
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(223, 76)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(55, 22)
-        Me.Button3.TabIndex = 31
-        Me.Button3.Text = "Update"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.update_btn.BackColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.update_btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(78, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(206, Byte), Integer))
+        Me.update_btn.FlatAppearance.BorderSize = 0
+        Me.update_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.update_btn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.update_btn.ForeColor = System.Drawing.Color.White
+        Me.update_btn.Location = New System.Drawing.Point(223, 76)
+        Me.update_btn.Name = "update_btn"
+        Me.update_btn.Size = New System.Drawing.Size(55, 22)
+        Me.update_btn.TabIndex = 31
+        Me.update_btn.Text = "Update"
+        Me.update_btn.UseVisualStyleBackColor = False
         '
         'Button4
         '
@@ -666,10 +666,12 @@ Partial Class Form1
         '
         'NotifyIcon1
         '
+        Me.NotifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.NotifyIcon1.Icon = CType(resources.GetObject("NotifyIcon1.Icon"), System.Drawing.Icon)
         Me.NotifyIcon1.Text = "Reminder"
         Me.NotifyIcon1.Visible = True
         '
-        'Form1
+        'RemindME
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -684,17 +686,17 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.update_btn)
         Me.Controls.Add(Me.Minimize_btn)
         Me.Controls.Add(Me.Close_btn)
         Me.Controls.Add(Me.DateTimePicker2)
         Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.delete_btn)
+        Me.Controls.Add(Me.add_btn)
         Me.Controls.Add(Me.ShapeContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Form1"
+        Me.Name = "RemindME"
         Me.Text = "Form1"
         Me.SlideMenu.ResumeLayout(False)
         Me.SlideMenu.PerformLayout()
@@ -708,8 +710,8 @@ Partial Class Form1
     Friend WithEvents timeGlobal As Label
     Friend WithEvents dateGlobal As Label
     Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents add_btn As Button
+    Friend WithEvents delete_btn As Button
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents DateTimePicker2 As DateTimePicker
     Friend WithEvents TextBox2 As TextBox
@@ -721,7 +723,7 @@ Partial Class Form1
     Friend WithEvents RectangleShape5 As PowerPacks.RectangleShape
     Friend WithEvents RectangleShape6 As PowerPacks.RectangleShape
     Friend WithEvents RectangleShape2 As PowerPacks.RectangleShape
-    Friend WithEvents Button3 As Button
+    Friend WithEvents update_btn As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Column1 As DataGridViewTextBoxColumn

@@ -4,7 +4,7 @@ Imports System.Security.Cryptography
 Imports System.Text
 Imports Newtonsoft.Json
 
-Public Class Form3
+Public Class UserAuth
     Public user_name As String
     Public drag As Boolean
     Public mousex, mousey As Integer
@@ -88,7 +88,7 @@ Public Class Form3
             If result.item("message") = "true" Then
                 user_name = user_text.Text
                 error_text.Visible = False
-                Form1.Show()
+                RemindME.Show()
                 user_text.Clear()
                 pass_text.Clear()
                 Me.Hide()

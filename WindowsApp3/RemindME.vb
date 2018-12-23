@@ -3,7 +3,7 @@ Imports System.Net
 Imports System.Text
 Imports Newtonsoft.Json
 
-Public Class Form1
+Public Class RemindME
     Public thisTime, thisDate, thisDates As String
     Public drag As Boolean
     Public mousex, mousey As Integer
@@ -55,7 +55,7 @@ Public Class Form1
 
                 If thisTime = waktu_user And thisDates = tanggal_user Then
                     reminderText = remind_user
-                    Form2.Show()
+                    NotifME.Show()
                     DataGridView1.Rows.Clear()
                     Dim result As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php?token=9807&hapus&id=" & id_data)
                     DataGridView1.Rows.Clear()
@@ -79,37 +79,37 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles add_btn.Click
         Try
             If TextBox1.Text = "" Then
                 MsgBox("Masukan Teks Reminder")
             Else
-                Dim result As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php?token=9807&masuk&username=" & Form3.user_name & "&remind=" & TextBox1.Text & "&tanggal=" & DateTimePicker1.Value.ToString("yyyy-MM-dd") & "&waktu=" & DateTimePicker2.Value.ToString("HH:mm:ss"))
-                MsgBox("Insert Data Success")
+                Dim result As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php?token=9807&masuk&username=" & UserAuth.user_name & "&remind=" & TextBox1.Text & "&tanggal=" & DateTimePicker1.Value.ToString("yyyy-MM-dd") & "&waktu=" & DateTimePicker2.Value.ToString("HH:mm:ss"))
+                MsgBox("Add Remind Success")
                 DataGridView1.Rows.Clear()
                 TextBox1.Clear()
                 Call minta()
             End If
         Catch ex As Exception
-            MsgBox("Insert Data Failed")
+            MsgBox("Add Remind Failed")
         End Try
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles update_btn.Click
 
         Try
             If TextBox1.Text = "" And TextBox2.Text = "" Then
                 MsgBox("Masukan Teks Reminder Dan Nomor")
             Else
                 Dim result As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php?token=9807&update&remind=" & TextBox1.Text & "&tanggal=" & DateTimePicker1.Value.ToString("yyyy-MM-dd") & "&waktu=" & DateTimePicker2.Value.ToString("HH:mm:ss") & "&id=" & TextBox2.Text)
-                MsgBox("Update Data Success")
+                MsgBox("Update Remind Success")
                 DataGridView1.Rows.Clear()
                 TextBox1.Clear()
                 TextBox2.Clear()
                 Call minta()
             End If
         Catch ex As Exception
-            MsgBox("Update Data Failed")
+            MsgBox("Update Remind Failed")
         End Try
     End Sub
 
@@ -121,7 +121,7 @@ Public Class Form1
 
     Public Sub minta()
         Call AturDGV()
-        Dim uriString As String = "http://unnamed48.ccug.gunadarma.ac.id/softskill/data2.php?minta&token=9807&username=" & Form3.user_name
+        Dim uriString As String = "http://unnamed48.ccug.gunadarma.ac.id/softskill/data2.php?minta&token=9807&username=" & UserAuth.user_name
         Dim uri As New Uri(uriString)
 
         'buat http request
@@ -156,23 +156,23 @@ Public Class Form1
     End Sub
 
     Private Sub Close_btn_Click(sender As Object, e As EventArgs) Handles Close_btn.Click
-        Form3.Show()
+        UserAuth.Show()
         Close()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles delete_btn.Click
         Try
             If TextBox2.Text = "" Then
                 MsgBox("Masukan nomor yang akan di hapus")
             Else
                 Dim result As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/data.php?token=9807&hapus&id=" & TextBox2.Text)
-                MsgBox("Delete Data Success")
+                MsgBox("Delete Remind Success")
                 DataGridView1.Rows.Clear()
                 TextBox2.Clear()
                 Call minta()
             End If
         Catch ex As Exception
-            MsgBox("Delete Data Failed")
+            MsgBox("Delete Remind Failed")
         End Try
     End Sub
 
@@ -289,12 +289,12 @@ Public Class Form1
         RectangleShape5.BorderColor = Color.FromArgb(78, 184, 206)
         RectangleShape6.BackColor = Color.FromArgb(78, 184, 206)
         RectangleShape6.BorderColor = Color.FromArgb(78, 184, 206)
-        Button1.BackColor = Color.FromArgb(78, 184, 206)
-        Button2.BackColor = Color.FromArgb(78, 184, 206)
-        Button3.BackColor = Color.FromArgb(78, 184, 206)
-        Button1.FlatAppearance.BorderColor = Color.FromArgb(78, 184, 206)
-        Button2.FlatAppearance.BorderColor = Color.FromArgb(78, 184, 206)
-        Button3.FlatAppearance.BorderColor = Color.FromArgb(78, 184, 206)
+        add_btn.BackColor = Color.FromArgb(78, 184, 206)
+        delete_btn.BackColor = Color.FromArgb(78, 184, 206)
+        update_btn.BackColor = Color.FromArgb(78, 184, 206)
+        add_btn.FlatAppearance.BorderColor = Color.FromArgb(78, 184, 206)
+        delete_btn.FlatAppearance.BorderColor = Color.FromArgb(78, 184, 206)
+        update_btn.FlatAppearance.BorderColor = Color.FromArgb(78, 184, 206)
         DataGridView1.RowsDefaultCellStyle.BackColor = Color.FromArgb(242, 242, 242)
         DataGridView1.RowsDefaultCellStyle.ForeColor = Color.Black
         DataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(242, 242, 242)
@@ -357,12 +357,12 @@ Public Class Form1
         RectangleShape5.BorderColor = Color.FromArgb(255, 65, 129)
         RectangleShape6.BackColor = Color.FromArgb(255, 65, 129)
         RectangleShape6.BorderColor = Color.FromArgb(255, 65, 129)
-        Button1.BackColor = Color.FromArgb(255, 65, 129)
-        Button2.BackColor = Color.FromArgb(255, 65, 129)
-        Button3.BackColor = Color.FromArgb(255, 65, 129)
-        Button1.FlatAppearance.BorderColor = Color.FromArgb(255, 65, 129)
-        Button2.FlatAppearance.BorderColor = Color.FromArgb(255, 65, 129)
-        Button3.FlatAppearance.BorderColor = Color.FromArgb(255, 65, 129)
+        add_btn.BackColor = Color.FromArgb(255, 65, 129)
+        delete_btn.BackColor = Color.FromArgb(255, 65, 129)
+        update_btn.BackColor = Color.FromArgb(255, 65, 129)
+        add_btn.FlatAppearance.BorderColor = Color.FromArgb(255, 65, 129)
+        delete_btn.FlatAppearance.BorderColor = Color.FromArgb(255, 65, 129)
+        update_btn.FlatAppearance.BorderColor = Color.FromArgb(255, 65, 129)
         DataGridView1.RowsDefaultCellStyle.BackColor = Color.FromArgb(18, 18, 18)
         DataGridView1.RowsDefaultCellStyle.ForeColor = Color.White
         DataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(18, 18, 18)
@@ -406,7 +406,6 @@ Public Class Form1
         WindowState = FormWindowState.Minimized
         If WindowState = FormWindowState.Minimized Then
             NotifyIcon1.Visible = True
-            NotifyIcon1.Icon = SystemIcons.Application
             NotifyIcon1.BalloonTipIcon = ToolTipIcon.Info
             NotifyIcon1.BalloonTipText = "Your Reminder"
             NotifyIcon1.ShowBalloonTip(500)
