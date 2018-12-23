@@ -32,10 +32,26 @@ Public Class Form3
             error_text.Text = "input username or password"
             error_text.Visible = True
         Else
-            Dim webClient As New WebClient
-            Dim result As String = webClient.DownloadString("http://unnamed48.ccug.gunadarma.ac.id/softskill/user.php?token=9807&buat&username=" & user_text.Text & "&password=" & GetHash(pass_text.Text))
-            error_text.Text = "sign up success"
-            error_text.Visible = True
+            Dim uriString As String = "http://unnamed48.ccug.gunadarma.ac.id/softskill/user.php?token=9807&buat&username=" & user_text.Text & "&password=" & GetHash(pass_text.Text)
+            Dim uri As New Uri(uriString)
+
+            Dim request As HttpWebRequest = HttpWebRequest.Create(uri)
+            request.Method = "GET"
+
+            Dim response As HttpWebResponse = request.GetResponse()
+
+            Dim read = New StreamReader(response.GetResponseStream())
+            Dim raw As String = read.ReadToEnd()
+
+            Dim result = JsonConvert.DeserializeObject(raw)
+
+            If result.item("message") = "true" Then
+                error_text.Text = "sign up success"
+                error_text.Visible = True
+            Else
+                error_text.Text = "user already exists"
+                error_text.Visible = True
+            End If
         End If
     End Sub
 
@@ -46,15 +62,7 @@ Public Class Form3
             ' Convert to byte array and get hash
             Dim dbytes As Byte() = hasher.ComputeHash(Encoding.UTF8.GetBytes(theInput))
 
-            ' sb to create string from bytes
-            Dim sBuilder As New StringBuilder()
-
-            ' convert byte data to hex string
-            For n As Integer = 0 To dbytes.Length - 1
-                sBuilder.Append(dbytes(n).ToString("X2"))
-            Next n
-
-            Return sBuilder.ToString()
+            Return Convert.ToBase64String(dbytes)
         End Using
 
     End Function
